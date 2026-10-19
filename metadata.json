@@ -1,0 +1,6 @@
+{
+  "name": "Lasso - Modern Payment Infrastructure",
+  "description": "The new frontier of digital commerce. Payment orchestration, checkout builder, and smart routing landing page.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
