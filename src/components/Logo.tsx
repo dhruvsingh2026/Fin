@@ -3,14 +3,20 @@ import React from 'react';
 interface LogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'giant';
-  variant?: 'blue' | 'white' | 'navy' | 'muted';
+  variant?: 'ink' | 'white' | 'leather' | 'muted';
   showText?: boolean;
   markOnly?: boolean;
 }
 
-export const CactusMark: React.FC<{ className?: string; color?: string; size?: number }> = ({
+export const FinexaaMark: React.FC<{
+  className?: string;
+  stemColor?: string;
+  stitchColor?: string;
+  size?: number;
+}> = ({
   className = '',
-  color = 'currentColor',
+  stemColor = '#172A25',
+  stitchColor = '#C5A77A',
   size = 20,
 }) => {
   return (
@@ -23,28 +29,27 @@ export const CactusMark: React.FC<{ className?: string; color?: string; size?: n
       className={className}
       aria-hidden="true"
     >
-      {/* Central main stem */}
+      {/* Vertical solid spine */}
       <path
-        d="M12 2.5V21.5"
-        stroke={color}
-        strokeWidth="2.8"
+        d="M6 3.5V20.5"
+        stroke={stemColor}
+        strokeWidth="2.6"
         strokeLinecap="round"
       />
-      {/* Left arm */}
+      {/* Top horizontal leather header bar */}
       <path
-        d="M6 7.5V12C6 13.933 7.567 15.5 9.5 15.5H12"
-        stroke={color}
-        strokeWidth="2.8"
+        d="M6 5H19"
+        stroke={stemColor}
+        strokeWidth="2.6"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
-      {/* Right arm */}
+      {/* Middle bar with artisanal saddle stitch line */}
       <path
-        d="M18 5.5V11C18 12.933 16.433 14.5 14.5 14.5H12"
-        stroke={color}
-        strokeWidth="2.8"
+        d="M6 11.5H14.5"
+        stroke={stitchColor}
+        strokeWidth="2.2"
         strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeDasharray="2 1.8"
       />
     </svg>
   );
@@ -53,40 +58,39 @@ export const CactusMark: React.FC<{ className?: string; color?: string; size?: n
 export const Logo: React.FC<LogoProps> = ({
   className = '',
   size = 'md',
-  variant = 'navy',
+  variant = 'ink',
   showText = true,
   markOnly = false,
 }) => {
-  const colorMap = {
-    blue: '#397AF4',
-    white: '#FFFFFF',
-    navy: '#16223B',
-    muted: '#69758A',
-  };
+  const stemColor = variant === 'white' ? '#FFFFFF' : '#172A25';
+  const stitchColor = variant === 'white' ? '#FFFFFF' : '#C5A77A';
 
-  const markColor = variant === 'white' ? '#FFFFFF' : '#397AF4';
   const textColorClass = {
-    blue: 'text-[#397AF4]',
+    ink: 'text-ink',
     white: 'text-white',
-    navy: 'text-[#16223B]',
-    muted: 'text-[#69758A]',
+    leather: 'text-leather',
+    muted: 'text-muted',
   }[variant];
 
   const sizeConfig = {
     sm: { markSize: 18, text: 'text-lg tracking-tight' },
     md: { markSize: 22, text: 'text-xl tracking-tight' },
     lg: { markSize: 28, text: 'text-2xl tracking-tight' },
-    giant: { markSize: 120, text: 'text-6xl md:text-8xl tracking-tighter' },
+    giant: { markSize: 96, text: 'text-6xl md:text-8xl tracking-tight' },
   }[size];
 
   return (
     <div className={`inline-flex items-center gap-2 select-none ${className}`}>
-      <CactusMark color={markColor} size={sizeConfig.markSize} />
+      <FinexaaMark
+        size={sizeConfig.markSize}
+        stemColor={stemColor}
+        stitchColor={stitchColor}
+      />
       {showText && !markOnly && (
         <span
-          className={`font-display font-bold lowercase leading-none ${sizeConfig.text} ${textColorClass}`}
+          className={`font-display font-bold leading-none ${sizeConfig.text} ${textColorClass}`}
         >
-          lasso
+          Finexaa
         </span>
       )}
     </div>

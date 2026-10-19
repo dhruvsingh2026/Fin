@@ -6,39 +6,39 @@ export interface FAQItem {
 
 export const faqList: FAQItem[] = [
   {
-    id: 'how-it-works',
-    question: 'How does Lasso work?',
+    id: 'what-trade',
+    question: 'What can I discover or trade on Finexaa?',
     answer:
-      'Lasso integrates between your e-commerce storefront (like Shopify, WooCommerce, or custom sites) and global payment processors. When a customer enters checkout, Lasso identifies their location, cart contents, and risk profile, dynamically routing the payment to the processor with the highest likelihood of approval and the lowest interchange fee.',
+      'Finexaa is a B2B marketplace platform for footwear (including leather shoes, formal footwear, and sneakers), leather goods (such as handbags, totes, wallets, and belts), and selected apparel. Listings on this page are illustrative examples of styles and manufacturing specialties available for sourcing.',
   },
   {
-    id: 'comes-with-payments',
-    question: 'Does Lasso come with payments?',
+    id: 'who-for',
+    question: 'Who is Finexaa for?',
     answer:
-      'Lasso provides universal orchestration rails. You can connect your existing merchant processing accounts (such as Stripe, Adyen, PayPal, BrainTree, and Checkout.com) or use Lasso’s pre-negotiated volume partner accounts to start accepting payments worldwide immediately.',
+      'Finexaa is designed for wholesale buyers, boutique owners, multi-brand retailers, and apparel brands seeking production partners, as well as workshops, tanneries, and manufacturers looking to establish wholesale connections.',
   },
   {
-    id: 'bring-merchant-account',
-    question: 'Can I bring my own merchant account?',
+    id: 'how-explore',
+    question: 'How can I explore products and suppliers?',
     answer:
-      'Yes, absolutely. Lasso is fully processor-agnostic. You can connect multiple existing merchant accounts, configure automatic failover rules, and distribute transaction volume across them based on your exact risk appetite and fee tiers.',
+      'You can browse our core product categories, review curated style line sheets, and inspect sample specifications directly on this page. To connect with specific maker profiles or discuss tailored runs, submit an enquiry using the form below.',
   },
   {
-    id: 'what-is-orchestration',
-    question: 'What is payment orchestration?',
+    id: 'submit-enquiry',
+    question: 'Can I submit a sourcing enquiry?',
     answer:
-      'Payment orchestration is a software layer that connects all components of payment processing—including gateways, risk assessment tools, fraud engines, and alternative payment methods—into a unified workflow. It dynamically selects the optimal payment route in real time for every checkout attempt.',
+      'Yes. The primary way to initiate trading on Finexaa is by submitting a sourcing enquiry via our contact form. You can specify your role (buyer or supplier), categories of interest, and any bespoke requirements.',
   },
   {
-    id: 'profit-margin',
-    question: 'How does Lasso increase my profit margin?',
+    id: 'pricing-moq',
+    question: 'How are product prices and minimum orders determined?',
     answer:
-      'Lasso increases margins in three direct ways: First, by routing transactions to processors with lower interchange fees. Second, by recovering otherwise lost transactions through instant cascading failover (typically lifting authorization rates by 2% to 6%). Third, by boosting average order value through built-in 1-click post-purchase upsells and order bumps.',
+      'All product prices, wholesale brackets, and minimum-order quantities (MOQs) displayed on this page are illustrative reference samples. Commercial terms, production volumes, and pricing schedules are negotiated and agreed upon directly per enquiry.',
   },
   {
-    id: 'split-test',
-    question: 'Why should I split test my cart and checkout?',
+    id: 'shipping-delivery',
+    question: 'How do shipping and delivery arrangements work?',
     answer:
-      'Every audience segment behaves differently. Split testing allows you to experiment with different payment methods (e.g. showing Apple Pay vs. Klarna upfront), layout variations, discount presentations, and upsell triggers. Testing helps you uncover which combinations maximize total revenue per session.',
+      'Logistics arrangements, export documentation, and freight forwarding terms depend on the supplier workshop location and are agreed directly between buyers and sellers during enquiry negotiations.',
   },
 ];

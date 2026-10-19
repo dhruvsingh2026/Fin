@@ -18,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    'inline-flex items-center justify-center font-medium font-sans whitespace-nowrap rounded-lg transition-all duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#397AF4] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+    'inline-flex items-center justify-center font-medium font-sans whitespace-nowrap rounded-lg transition-all duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
 
   const sizeClasses = {
     sm: 'text-xs px-3.5 py-1.5 h-8 gap-1.5',
@@ -28,13 +28,13 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variantClasses = {
     primary:
-      'bg-[#397AF4] text-white hover:bg-[#2A6CE6] active:bg-[#205DCF] shadow-[0_1px_2px_rgba(57,122,244,0.2)]',
+      'bg-ink text-white hover:bg-ink-hover active:bg-[#11201C] shadow-[0_1px_2px_rgba(23,42,37,0.15)]',
     secondary:
-      'bg-white text-[#16223B] border border-[#E6ECF4] hover:bg-[#F8FAFC] hover:border-[#D5DFEC] shadow-[0_1px_2px_rgba(22,34,59,0.04)]',
+      'bg-white text-ink border border-border hover:bg-surface-soft hover:border-[#D5D3CB] shadow-[0_1px_2px_rgba(23,42,37,0.04)]',
     outline:
-      'bg-transparent text-[#397AF4] border border-[#397AF4]/30 hover:bg-[#F0F6FF] hover:border-[#397AF4]',
+      'bg-transparent text-ink border border-ink/40 hover:bg-surface-soft hover:border-ink',
     ghost:
-      'bg-transparent text-[#16223B] hover:bg-[#F0F6FF] hover:text-[#397AF4]',
+      'bg-transparent text-ink hover:bg-linen hover:text-ink',
   }[variant];
 
   const combinedClasses = `${baseClasses} ${sizeClasses} ${variantClasses} ${className}`;

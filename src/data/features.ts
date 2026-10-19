@@ -1,59 +1,72 @@
-export interface FeatureData {
-  id: string;
-  chipIcon: 'card' | 'chart' | 'analytics' | 'shield' | 'cart';
+import { ChipIconType } from '../components/InlineIconChip.tsx';
+
+export interface FeaturedDiscovery {
+  chipIcon: ChipIconType;
   titleLead: string;
   titleTail: string;
   description: string;
 }
 
-export const featureGridData = {
-  checkoutCard: {
-    chipIcon: 'card' as const,
-    titleLead: 'Checkout',
-    titleTail: 'your way. Boost your profit margin.',
-    description: 'Customize your cart and checkout flow to match your brand and boost conversions across every sales channel.',
+export const marketplaceFeatures = {
+  mainDiscovery: {
+    chipIcon: 'bag' as ChipIconType,
+    titleLead: 'Discover',
+    titleTail: 'the pieces you trade.',
+    description:
+      'Explore sample listings across footwear, leather goods, bags and apparel. Connect directly with sellers through targeted sourcing enquiries.',
   },
-  conversionCard: {
-    chipIcon: 'chart' as const,
-    titleLead: 'Scale',
-    titleTail: 'without limits.',
-    description: 'Route payments across multiple providers as you grow with automated volume balancing and instant failover.',
-    metric: '7.35%',
-    changeTag: '+1.62%',
-    sublabel: 'Checkout Conversion Rate',
+  categoryOverview: {
+    chipIcon: 'search' as ChipIconType,
+    titleLead: 'Browse',
+    titleTail: 'every category.',
+    description:
+      'Curate sourcing requirements by category, construction type, and core leather materials.',
+    categories: [
+      { name: 'Leather Shoes & Loafers', tag: 'Footwear' },
+      { name: 'Low-Top & Cupsole Sneakers', tag: 'Footwear' },
+      { name: 'Trapeze & Structured Handbags', tag: 'Leather Goods' },
+      { name: 'Bifold Wallets & Cardholders', tag: 'Accessories' },
+      { name: 'Bridle & Vegetable-Tanned Belts', tag: 'Accessories' },
+      { name: 'Tailored Suede & Leather Apparel', tag: 'Apparel' },
+    ],
   },
   bottomRow: [
     {
-      id: 'insights',
-      chipIcon: 'analytics' as const,
-      titleLead: 'Grow',
-      titleTail: 'revenue with insights.',
-      description: 'Advanced sales insights and funnel metrics to see exactly where customers convert or fall off.',
-      metrics: [
-        { label: 'Visitors', value: '937' },
-        { label: 'Conversion', value: '95.43%' },
+      id: 'styles',
+      chipIcon: 'footwear' as ChipIconType,
+      titleLead: 'Discover',
+      titleTail: 'styles.',
+      description: 'Review silhouettes and finishing details across multiple product families.',
+      items: [
+        { name: 'Burnished Penny Loafer', tag: 'Footwear', artKey: 'loafer' as const },
+        { name: 'Low-Top Cupsole Sneaker', tag: 'Footwear', artKey: 'sneaker' as const },
+        { name: 'Tailored Suede Overshirt', tag: 'Apparel', artKey: 'apparel' as const },
       ],
     },
     {
-      id: 'protection',
-      chipIcon: 'shield' as const,
-      titleLead: 'Protect',
-      titleTail: 'revenue from any threat.',
-      description: 'Real-time AI fraud detection and automatic chargeback mitigation built into every checkout step.',
-      orders: [
-        { id: '#4821', item: 'Nike Blazer Mid', status: 'verified', amount: '$110.00' },
-        { id: '#4822', item: 'Yeti Rambler 26oz', status: 'verified', amount: '$35.00' },
-        { id: '#4823', item: 'MacBook Air M3', status: 'flagged', amount: '$1,299.00' },
+      id: 'suppliers',
+      chipIcon: 'handshake' as ChipIconType,
+      titleLead: 'Find',
+      titleTail: 'suppliers.',
+      description: 'Explore verified maker profiles and regional atelier hubs producing fine goods.',
+      supplierSamples: [
+        { name: 'Atelier Toscana', region: 'Tuscany, Italy', focus: 'Handcrafted Handbags & Totes' },
+        { name: 'Norte Footwear Lab', region: 'Porto, Portugal', focus: 'Goodyear Welted & Sneakers' },
+        { name: 'Ubrique Leather Studio', region: 'Ubrique, Spain', focus: 'Small Leather Goods & Belts' },
       ],
     },
     {
-      id: 'upsell',
-      chipIcon: 'cart' as const,
-      titleLead: 'Earn',
-      titleTail: 'more from every sale.',
-      description: 'Add one-click upsells, order bumps, and flexible subscriptions to any e-commerce builder seamlessly.',
-      cartItem: { name: 'Knee Brace Pro', price: '$49.00', quantity: 1 },
-      bumpItem: { name: 'Matching Compression Sleeve', price: '$19.00', discount: 'Save 30%' },
+      id: 'collections',
+      chipIcon: 'layers' as ChipIconType,
+      titleLead: 'Organise',
+      titleTail: 'collections.',
+      description: 'Group candidate items into seasonal merchandising collections before sending enquiries.',
+      collectionSample: {
+        title: 'Autumn Leather Curation',
+        itemCount: '12 sample styles',
+        materials: 'Calfskin, Bridle, Suede',
+        status: 'Sample Collection',
+      },
     },
   ],
 };

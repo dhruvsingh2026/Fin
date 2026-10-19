@@ -5,47 +5,46 @@ export interface FooterColumn {
 
 export const footerData = {
   brandDescription:
-    'Lasso powers your online checkout flow. From global payment methods to fully built cart-customization tools, get the tools and analytics you need to make better decisions. See checkout, every channel.',
+    'Finexaa is a curated B2B fashion and leather-goods trading marketplace connecting independent retailers, boutique merchandisers, and wholesale buyers with dedicated European and global craft producers.',
   columns: [
     {
-      title: 'Product',
+      title: 'Marketplace',
       links: [
-        { label: 'Platform', href: '#platform' },
-        { label: 'Payments', href: '#payments' },
-        { label: 'Orchestration', href: '#orchestration' },
-        { label: 'Users', href: '#services' },
-        { label: 'Pricing', href: '#pricing' },
-        { label: 'FAQs', href: '#faq' },
+        { label: 'Explore Marketplace', href: '#marketplace' },
+        { label: 'Sample Listings', href: '#marketplace' },
+        { label: 'Suppliers & Workshops', href: '#suppliers' },
+        { label: 'Sourcing Workflow', href: '#sourcing' },
       ],
     },
     {
-      title: 'Learn',
+      title: 'Categories',
       links: [
-        { label: 'User Guide', href: '#sync' },
-        { label: 'Book a demo', href: '#contact' },
-        { label: 'Documentation', href: '#services' },
-        { label: 'API Reference', href: '#orchestration' },
+        { label: 'Leather Shoes & Loafers', href: '#categories' },
+        { label: 'Sneakers & Footwear', href: '#categories' },
+        { label: 'Handbags & Totes', href: '#categories' },
+        { label: 'Wallets & Belts', href: '#categories' },
+        { label: 'Outerwear & Apparel', href: '#categories' },
       ],
     },
     {
-      title: 'Company',
+      title: 'Business',
       links: [
-        { label: 'About', href: '#platform' },
-        { label: 'Privacy Policy', href: 'https://policies.google.com/privacy', isExternal: true },
-        { label: 'Terms of Service', href: 'https://policies.google.com/terms', isExternal: true },
-        { label: 'Acceptable Use Policy', href: '#faq' },
-        { label: 'Service Level Agreement', href: '#pricing' },
-        { label: 'Sub-processor Appendix', href: '#payments' },
+        { label: 'For Buyers & Retailers', href: '#audiences' },
+        { label: 'For Suppliers & Makers', href: '#audiences' },
+        { label: 'How Finexaa Works', href: '#how-it-works' },
+        { label: 'Trading Questions (FAQ)', href: '#faq' },
       ],
     },
     {
-      title: 'Socials',
+      title: 'Support',
       links: [
-        { label: 'Twitter / X', href: 'https://twitter.com', isExternal: true },
-        { label: 'LinkedIn', href: 'https://linkedin.com', isExternal: true },
-        { label: 'GitHub', href: 'https://github.com', isExternal: true },
-        { label: 'YouTube', href: 'https://youtube.com', isExternal: true },
+        { label: 'Submit Sourcing Enquiry', href: '#contact' },
+        { label: 'Supplier Collaboration', href: '#contact' },
+        { label: 'General Assistance', href: '#faq' },
       ],
     },
   ],
+  // Optional real legal or social links; will only render when non-empty real URLs are provided
+  legalLinks: [] as { label: string; href: string }[],
+  socialLinks: [] as { label: string; href: string }[],
 };

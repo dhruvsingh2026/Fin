@@ -1,6 +1,6 @@
 {
-  "name": "Lasso - Modern Payment Infrastructure",
-  "description": "The new frontier of digital commerce. Payment orchestration, checkout builder, and smart routing landing page.",
+  "name": "Finexaa",
+  "description": "Finexaa is a B2B fashion and leather-goods trading marketplace connecting buyers, retailers, wholesalers, and suppliers.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

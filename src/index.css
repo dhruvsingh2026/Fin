@@ -4,27 +4,36 @@
   --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
   --font-sans: 'Poppins', system-ui, -apple-system, sans-serif;
 
-  --color-brand-blue: #397AF4;
-  --color-brand-blue-hover: #2B69E3;
-  --color-brand-navy: #16223B;
-  --color-brand-pale: #F0F6FF;
-  --color-brand-border: #E6ECF4;
-  --color-brand-muted: #69758A;
+  --color-ink: #172A25;
+  --color-ink-hover: #233F38;
+  --color-leather: #C5A77A;
+  --color-leather-tint: #EFE6D6;
+  --color-leather-border: #E2D5C0;
+  --color-linen: #F6F2EB;
+  --color-surface-soft: #FBF9F5;
+  --color-white: #FFFFFF;
+  --color-muted: #6D766F;
+  --color-muted-linen: #5E675F;
+  --color-border: #E7E6E0;
 }
 
 :root {
-  --blue: #397AF4;
-  --navy: #16223B;
-  --bg: #FFFFFF;
-  --pale: #F0F6FF;
-  --border: #E6ECF4;
-  --muted: #69758A;
+  --ink: #172A25;
+  --leather: #C5A77A;
+  --leather-tint: #EFE6D6;
+  --leather-border: #E2D5C0;
+  --linen: #F6F2EB;
+  --surface-soft: #FBF9F5;
+  --white: #FFFFFF;
+  --muted: #6D766F;
+  --muted-linen: #5E675F;
+  --border: #E7E6E0;
 }
 
 body {
   font-family: var(--font-sans);
-  color: var(--navy);
-  background-color: var(--bg);
+  color: var(--ink);
+  background-color: var(--white);
   overflow-x: hidden;
 }
 
@@ -32,17 +41,42 @@ h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
 }
 
-/* Custom subtle shadows matching Lasso style */
-.shadow-lasso-card {
-  box-shadow: 0 1px 3px rgba(22, 34, 59, 0.04), 0 8px 24px rgba(22, 34, 59, 0.04);
+/* Subtle shadows tuned for Finexaa cards and tiles */
+.shadow-card {
+  box-shadow: 0 1px 3px rgba(23, 42, 37, 0.04), 0 8px 24px rgba(23, 42, 37, 0.04);
 }
 
-.shadow-lasso-hover {
-  box-shadow: 0 4px 12px rgba(22, 34, 59, 0.06), 0 16px 32px rgba(22, 34, 59, 0.08);
+.shadow-card-hover {
+  box-shadow: 0 4px 12px rgba(23, 42, 37, 0.06), 0 16px 32px rgba(23, 42, 37, 0.08);
 }
 
-.shadow-lasso-tile {
-  box-shadow: 0 4px 20px -2px rgba(22, 34, 59, 0.08), 0 2px 6px -1px rgba(22, 34, 59, 0.04);
+.shadow-tile {
+  box-shadow: 0 4px 20px -2px rgba(23, 42, 37, 0.08), 0 2px 6px -1px rgba(23, 42, 37, 0.04);
+}
+
+/* Scrollbar utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Clean accessible fade-in */
+@keyframes fadeInKeyframe {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInKeyframe 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Reduced motion preference */

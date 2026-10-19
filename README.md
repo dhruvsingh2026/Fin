@@ -1,102 +1,120 @@
-# Lasso — Modern Payment Infrastructure Landing Page
+# Finexaa — B2B Fashion & Leather-Goods Trading Marketplace
 
-A complete, responsive, production-quality recreation of the Lasso payment-orchestration SaaS landing page, built with React 18, Vite, and Tailwind CSS.
+A responsive, production-quality landing page for **Finexaa**, a premium B2B-first trading marketplace connecting footwear, leather goods, handbag, and apparel buyers, retailers, wholesalers, and manufacturers.
 
-## 🚀 Overview & Features
+Built with **React 19**, **TypeScript**, **Vite 8**, and **Tailwind CSS 4** (`@tailwindcss/vite` with `@theme` design tokens).
 
-- **11 Exact Sections in Order**:
-  1. **Header**: Normal-flow (non-sticky) navigation with cactus mark + `lasso` wordmark, 5 in-page anchor links, compact "Get in touch" CTA, and an accessible mobile drawer with keyboard/focus management.
-  2. **Hero**: Two-line Bricolage Grotesque headline framed by floating armchair & backpack product previews, light-gray hairline connectors to `Trial A` / `Trial B` pills, and central cactus emblem.
-  3. **Payment Provider Strip**: Shallow, rounded white container with 9 recognized payment provider SVG marks (Shop Pay, Mastercard, Klarna, Google Pay, Apple Pay, Affirm, Adyen, PayPal, Checkout.com).
-  4. **Asymmetric Feature Grid**: Pale-blue outer container holding:
-     - 2/3 Checkout card with realistic interactive order summary, headphones SVG, skeleton bars, and Apple Pay / G Pay / Klarna pills.
-     - 1/3 Conversion card with `7.35%` metric, `+1.62%` change pill, and blue area chart.
-     - 3 bottom cards: *Grow with insights* (95.4% pass-rate arc), *Protect revenue* (blocked transaction alert), and *Earn more* (cart with 1-click upsell bump).
-     - Signature inline icon chips embedded directly into headings.
-  5. **"Send volume. We can handle it."**: 3 equal cards with blue-toned wave and cloud vector art, featuring volume distribution progress bars, floating payment pills, and a live session A/B routing node graph.
-  6. **"No transaction left behind."**: Hub-and-spoke payment orchestration network with a central ~200×140px blue tile (wave art, lasso wordmark, cactus base) connected via curved radial lines to 8 payment processor nodes.
-  7. **Checkout as a Service**: Full-bleed pale-blue band featuring a 6-item vertical selector with tablist ARIA semantics, paired with a live 3-device checkout simulator panel that dynamically reacts to the active selection.
-  8. **Pricing**: Annual / Monthly switchable toggle powering Growth (pale blue card with 10 features and 1% fee note) and Enterprise (white card with custom pricing and volume fee rate) from a single config object.
-  9. **FAQ**: Narrow ~720px column with 6 accordion rows, smooth height transitions, rotating `+` / `−` triggers, and ARIA expanded attributes.
-  10. **"Sync."**: Understated 3-step onboarding workflow cards with subtle borders and step counters.
-  11. **Footer**: Upper section with brand copy, email signup form (with client-side regex validation and environment endpoint handling), and 4 navigation columns. Lower section with a 420–500px cool pale-blue alpine mountain landscape SVG overlaid with a giant cropped semi-transparent `lasso` wordmark.
+---
 
-## 🎨 Typography & Color System
+## 📌 GitHub Repository Note
 
-- **Fonts**:
-  - `Bricolage Grotesque`: Headlines, card titles, display metrics, plan names, prices, and wordmark.
-  - `Poppins`: Navigation, paragraphs, buttons, captions, form inputs, metadata, and FAQ copy.
-- **Brand Colors**:
-  - `--blue`: `#397AF4` (CTAs, active states, charts, links)
-  - `--navy`: `#16223B` (Headings, primary text)
-  - `--bg`: `#FFFFFF` (Page background)
-  - `--pale`: `#F0F6FF` (Cards, Checkout-as-a-Service band)
-  - `--border`: `#E6ECF4` (Subtle card and section dividers)
-  - `--muted`: `#69758A` (Secondary text and metadata)
+> **Repository:** `github.com/dhruvsingh2026/Fin`
+> 
+> As an automated workspace assistant, I operate strictly inside this AI Studio build environment and do not possess credentials or network permissions to push directly to your remote GitHub repository. All transformed and newly created files are listed below so you can apply or push them to your repository (`git status` / `git commit`).
 
-## 🛠️ Local Development & Build
+---
 
-### Prerequisites
-- Node.js 18+
-- npm 9+
+## 🏛️ The 11 Sections (in exact order)
 
-### Commands
+1. **Header** (`src/components/Header.tsx`): Normal-flow (non-sticky) white header with the `Finexaa` wordmark, `FinexaaMark` (geometric saddle-stitch "F"), 5 in-page anchors (`#marketplace`, `#categories`, `#suppliers`, `#how-it-works`, `#about`), "Explore Marketplace" CTA, and an accessible mobile drawer with keyboard focus trap, Escape key handling, and $\ge 44\text{px}$ touch targets.
+2. **Hero** (`src/components/Hero.tsx`): B2B headline (*"Where fashion finds / its next market."*) in Bricolage Grotesque, framed by two floating product preview tiles (Low-Top Sneaker and Saddle Tote) labelled "Sample listing", hairline connectors leading to "Buyers" and "Suppliers" indicators, and a central `FinexaaMark` emblem.
+3. **Category Strip** (`src/components/CategoryStrip.tsx`, `id="categories"`): Shallow rounded bordered bar with six typographic links and line icons: Leather Shoes, Sneakers, Handbags, Apparel, Wallets & Belts, and Wholesale Collections.
+4. **Feature Grid** (`src/components/FeatureGrid.tsx`, `id="marketplace"`): Asymmetric grid inside a soft linen panel featuring:
+   - 2/3 Discovery card with a handbag sample listing, materials, indicative price ($185 / unit · Indicative), and "Send an enquiry" action.
+   - 1/3 Category overview list with category breakdown.
+   - 3 lower cards: *Discover styles* (product art thumbnails), *Find suppliers* (illustrative atelier maker profile), and *Organise collections* (curated line sheet sample).
+   - Signature inline icon chips embedded directly into headings.
+5. **Assortment Showcase** (`src/components/AssortmentShowcase.tsx`, `id="assortment"`): *"Every category, / one marketplace."* Three equal cards featuring material backgrounds (tan leather grain with saddle stitch, linen weave, suede brown) with distinct product art (Penny Loafer, Bifold Wallet, Suede Overshirt).
+6. **Trade Network** (`src/components/TradeNetworkDiagram.tsx`, `id="suppliers"`): Hub-and-spoke diagram with a central ~200×140px Ink tile with leather texture, `FinexaaMark` and `Finexaa` wordmark, connected via light radial lines to 8 commerce nodes (Retailers, Buyers, Wholesalers, Suppliers, Manufacturers, Footwear, Leather Goods, Apparel).
+7. **From Discovery to Trade** (`src/components/SourcingWorkflow.tsx`, `id="sourcing"`): Full-width linen band featuring a 6-stage vertical tablist with complete keyboard navigation (Arrow Up/Down, Home, End) and an illustrative stage preview panel.
+8. **Audiences** (`src/components/Audiences.tsx`, `id="audiences"`): *"Built for both sides of trade."* Two equal-height cards for *Buyers and Retailers* (linen) and *Suppliers and Sellers* (white bordered) with benefit bullets and direct enquiry CTAs.
+9. **FAQ** (`src/components/FAQ.tsx`, `id="faq"`): Narrow ~720px column with 6 accordion rows detailing trading workflows, sample terms, and sourcing enquiries with a smooth CSS height/opacity transition.
+10. **How Finexaa Works** (`src/components/Workflow.tsx`, `id="how-it-works"`): 3 understated workflow cards: *01. Explore Categories*, *02. Discover Products and Suppliers*, and *03. Start a Trading Enquiry*.
+11. **Footer** (`src/components/Footer.tsx`, `id="about"`):
+    - Upper section: Brand overview, sourcing enquiry form (`#contact`) with email validation, role selector, optional requirement textarea, and honest unconfigured endpoint handling.
+    - 4 structured navigation columns with valid in-page anchors.
+    - Lower section: Calm material still life SVG (folded linen, leather drape curves, saddle stitch lines) overlaid with an oversized, cropped semi-transparent `Finexaa` wordmark (~13–14vw) that scales responsively without horizontal scroll.
+
+---
+
+## 🎨 Design System & Color Tokens
+
+Defined in `@theme` inside `src/index.css`:
+
+| Token | Hex | Usage |
+| :--- | :--- | :--- |
+| `ink` | `#172A25` | Headings, primary text, primary button background, focus rings |
+| `leather` | `#C5A77A` | Accent fills, borders, decorative stitch marks (never text on white) |
+| `leather-tint` | `#EFE6D6` | Eyebrow pills, chip backgrounds |
+| `leather-border` | `#E2D5C0` | Borders for chips and pills |
+| `linen` | `#F6F2EB` | Soft surfaces, full-width contrasting band, card fills |
+| `surface-soft` | `#FBF9F5` | Mockup containers and subtle inner panels |
+| `white` | `#FFFFFF` | Dominant page background |
+| `muted` | `#6D766F` | Secondary body text on white |
+| `muted-linen` | `#5E675F` | Secondary text on linen surfaces ($\ge 4.5:1$ contrast) |
+| `border` | `#E7E6E0` | Subtle hairline dividers and card outlines |
+
+### Typography
+- **Bricolage Grotesque**: Hero headline, section headings, card titles, and the `Finexaa` wordmark.
+- **Poppins**: Navigation, paragraphs, buttons, labels, category chips, and form fields.
+
+---
+
+## 📁 Data Configuration Map (`src/data/`)
+
+All marketplace copy, sample listings, and categories are centralized in config files:
+- `src/data/nav.ts`: Top bar and mobile navigation items.
+- `src/data/categories.ts`: Category strip links and icons.
+- `src/data/products.ts`: Sample product listings with illustrative prices and materials.
+- `src/data/features.ts`: Feature grid discovery highlights, categories, and maker placeholders.
+- `src/data/assortment.ts`: Three assortment cards with material themes.
+- `src/data/sourcing.ts`: Sourcing workflow stages, bullets, and preview mock data.
+- `src/data/audiences.ts`: Buyer & Supplier audience cards (with extension point for future pricing tiers).
+- `src/data/faqs.ts`: 6 marketplace trading questions and neutral answers.
+- `src/data/workflow.ts`: 3 onboarding steps for "How Finexaa works".
+- `src/data/footer.ts`: Footer brand copy, navigation columns, and optional external links.
+
+---
+
+## ✉️ Enquiry Form Endpoint (`VITE_FORM_ENDPOINT`)
+
+The lead enquiry form in the footer (`#contact`) submits via `POST` with the payload:
+```json
+{
+  "email": "buyer@boutique.com",
+  "role": "Buyer or retailer",
+  "message": "Interested in sampling SS27 loafers",
+  "source": "finexaa-landing"
+}
+```
+
+- If `VITE_FORM_ENDPOINT` is configured in `.env.local`, the form sends the submission to that endpoint.
+- If `VITE_FORM_ENDPOINT` is empty or omitted, the form gracefully informs the user:
+  > *"Form endpoint not configured (set VITE_FORM_ENDPOINT in environment)."*
+  It will never fabricate a false success state.
+
+---
+
+## 🛠️ Build & Deployment
+
+### Local Development
 ```bash
 # Install dependencies
 npm install
 
-# Start local development server (runs on http://localhost:3000)
+# Run Vite dev server (runs on port 3000)
 npm run dev
 
-# Compile TypeScript and build for production
-npm run build
+# Run TypeScript type check
+npm run lint
 
-# Preview production build locally
-npm run preview
+# Production build
+npm run build
 ```
 
-## 🌐 Deployment (e.g. Vercel, Netlify, Cloud Run)
-
-- **Framework Preset**: Vite
+### Vercel / Netlify / Cloud Run
+- **Framework Preset**: `Vite`
 - **Build Command**: `npm run build`
 - **Output Directory**: `dist`
-- **Node Version**: 18.x or 20.x
-
-## ⚙️ Configuration & Content Editing
-
-All text, pricing, features, and navigation links live in organized TypeScript files under `src/data/`:
-- `src/data/nav.ts`: Top bar navigation items and anchor links.
-- `src/data/logos.ts`: Payment provider strip names and categories.
-- `src/data/features.ts`: Asymmetric feature grid headlines, metrics, and checkout mock items.
-- `src/data/volume.ts`: Volume scaling cards and descriptions.
-- `src/data/services.ts`: Checkout as a Service tabs, bullet points, and device preview mock data.
-- `src/data/pricing.ts`: Growth and Enterprise pricing, discounts, cadence labels, and feature checklists.
-- `src/data/faqs.ts`: FAQ questions and answers.
-- `src/data/workflow.ts`: 3-step onboarding workflow cards.
-- `src/data/footer.ts`: Footer brand description and link columns.
-
-## ✉️ Form Endpoint Configuration
-
-The contact sales / email capture form in the footer is wired to submit via `POST` to the environment variable `VITE_FORM_ENDPOINT`.
-
-To configure:
-1. Create a `.env.local` file in the root directory:
-   ```env
-   VITE_FORM_ENDPOINT="https://your-api-endpoint.com/api/contact"
-   ```
-2. If `VITE_FORM_ENDPOINT` is omitted or left blank, the form validates the email and displays a clear notice: *"Form endpoint not configured (set VITE_FORM_ENDPOINT in environment)"*. It will never fabricate a fake success state.
-
-## 🏷️ Simplified Logos for Production Replacement
-
-The following payment marks are implemented as lightweight inline SVGs to guarantee zero external asset breakage:
-- **Shop Pay** (`src/components/PaymentPartnerStrip.tsx`)
-- **Mastercard** (`src/components/PaymentPartnerStrip.tsx`)
-- **Klarna** (`src/components/PaymentPartnerStrip.tsx`)
-- **Google Pay** (`src/components/PaymentPartnerStrip.tsx`)
-- **Apple Pay** (`src/components/PaymentPartnerStrip.tsx`)
-- **Affirm** (`src/components/PaymentPartnerStrip.tsx`)
-- **Adyen** (`src/components/PaymentPartnerStrip.tsx`)
-- **PayPal** (`src/components/PaymentPartnerStrip.tsx`)
-- **Checkout.com** (`src/components/PaymentPartnerStrip.tsx`)
-
-For enterprise production use, replace these with your organization's licensed brand SVG files from their respective merchant partner kits.
+- **Node Version**: `18.x` or `20.x`
+- No backend server required; purely static SPA.

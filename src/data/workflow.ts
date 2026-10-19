@@ -2,31 +2,29 @@ export interface WorkflowStep {
   step: string;
   title: string;
   description: string;
-  iconName: 'user-plus' | 'sliders' | 'git-branch';
+  iconName: 'compass' | 'users' | 'send';
 }
 
 export const workflowSteps: WorkflowStep[] = [
   {
     step: '01',
-    title: 'Create Account',
+    title: 'Explore Categories',
     description:
-      'Create your account and safely connect your current payment processing accounts or apply for new merchant accounts. Lasso is connected with 20+ payment processing solutions, so having our own accounts ensures redundancy and reliability.',
-    iconName: 'user-plus',
+      'Browse focused fashion categories across fine leather footwear, contemporary sneakers, structured handbags, and seasonal apparel collections.',
+    iconName: 'compass',
   },
   {
     step: '02',
-    title: 'Customize Checkout',
+    title: 'Discover Products and Suppliers',
     description:
-      'Design and tailor your cart and checkout flows to match your brand. Add optimizers to increase your AOV. Split test and scale.\n\nOptimizers: Upsells, Down Sells, Order Bumps, Subscriptions.',
-    iconName: 'sliders',
+      'Review representative sample listings, craftsmanship details, materials, and workshop locations to identify partners matching your brand standards.',
+    iconName: 'users',
   },
   {
     step: '03',
-    title: 'Set Payment Rules',
+    title: 'Start a Trading Enquiry',
     description:
-      'Route more payments based on tools that customers' +
-      ' ' +
-      'increasing approvals. Split volume between processors to maintain solvency and decrease risk. Automatically route failed payments to the next available processor in real time.',
-    iconName: 'git-branch',
+      'Submit your sourcing interest directly through our enquiry channel to discuss volume tiers, bespoke leather specifications, and production timelines.',
+    iconName: 'send',
   },
 ];

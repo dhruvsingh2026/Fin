@@ -1,312 +1,225 @@
 import React from 'react';
 import { InlineIconChip } from './InlineIconChip.tsx';
-import { featureGridData } from '../data/features.ts';
-import { Check, ShieldAlert, ArrowUpRight } from 'lucide-react';
-
-// SVG Headphones art for the Checkout card mockup
-const HeadphonesArt: React.FC<{ className?: string }> = ({ className = '' }) => (
-  <svg
-    viewBox="0 0 100 100"
-    className={`w-full h-auto ${className}`}
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-label="Studio Wireless Headphones"
-  >
-    {/* Headband */}
-    <path
-      d="M20 54 C20 28, 80 28, 80 54"
-      stroke="#1E293B"
-      strokeWidth="7"
-      strokeLinecap="round"
-    />
-    <path
-      d="M26 50 C26 32, 74 32, 74 50"
-      stroke="#475569"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    {/* Left Earcup */}
-    <rect x="14" y="48" width="14" height="28" rx="7" fill="#0F172A" />
-    <rect x="18" y="52" width="6" height="20" rx="3" fill="#334155" />
-    {/* Right Earcup */}
-    <rect x="72" y="48" width="14" height="28" rx="7" fill="#0F172A" />
-    <rect x="76" y="52" width="6" height="20" rx="3" fill="#334155" />
-    {/* Soft inner glow */}
-    <circle cx="21" cy="62" r="2" fill="#397AF4" />
-    <circle cx="79" cy="62" r="2" fill="#397AF4" />
-  </svg>
-);
+import { marketplaceFeatures } from '../data/features.ts';
+import { ProductImage } from './ProductImage.tsx';
+import { Button } from './Button.tsx';
+import { ArrowUpRight, Building2, Layers } from 'lucide-react';
 
 export const FeatureGrid: React.FC = () => {
-  const { checkoutCard, conversionCard, bottomRow } = featureGridData;
+  const { mainDiscovery, categoryOverview, bottomRow } = marketplaceFeatures;
 
   return (
-    <section id="platform" className="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-28">
-      {/* Outer pale blue container */}
-      <div className="bg-[#F0F6FF] rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#E2ECF8]">
+    <section id="marketplace" className="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-28">
+      {/* Outer soft linen panel */}
+      <div className="bg-linen rounded-3xl p-4 sm:p-6 lg:p-7 border border-border">
         
-        {/* ROW 1: 2fr / 1fr Desktop Grid */}
+        {/* ROW 1: Asymmetric 2/3 and 1/3 Desktop Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
           
-          {/* Large Checkout Card (~8 cols) */}
-          <div className="lg:col-span-8 bg-white rounded-2xl p-5 sm:p-7 border border-[#E6ECF4] shadow-lasso-card transition-all duration-200 hover:shadow-lasso-hover flex flex-col justify-between">
-            {/* Mockup Container */}
-            <div className="bg-[#FAFBFD] rounded-xl p-4 sm:p-5 border border-[#EDF2F8] mb-6">
+          {/* Large Product Discovery Card (~8 cols) */}
+          <div className="lg:col-span-8 bg-white rounded-2xl p-5 sm:p-7 border border-border shadow-card transition-all duration-200 hover:shadow-card-hover flex flex-col justify-between">
+            {/* Product Discovery Mockup Container */}
+            <div className="bg-surface-soft rounded-xl p-4 sm:p-5 border border-border mb-6">
               
-              {/* Checkout Header with Fake Store Brand */}
-              <div className="flex items-center justify-between border-b border-[#EDF2F8] pb-3 mb-4">
+              {/* Mockup Header */}
+              <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#397AF4]" />
-                  <span className="text-xs font-semibold text-[#16223B]">Aura Audio Store</span>
+                  <div className="w-2.5 h-2.5 rounded-full bg-ink" />
+                  <span className="text-xs font-semibold text-ink">B2B Sourcing Preview</span>
                 </div>
-                <span className="text-[11px] text-[#69758A] font-mono">Order #8921</span>
+                <span className="text-[11px] text-muted uppercase font-medium bg-white px-2 py-0.5 rounded border border-border">
+                  Sample listing
+                </span>
               </div>
 
               {/* Product Row */}
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                <div className="sm:col-span-3 bg-white rounded-lg p-2 border border-[#E6ECF4] flex items-center justify-center">
-                  <HeadphonesArt className="w-20 h-20" />
+                <div className="sm:col-span-4 bg-white rounded-lg p-2 border border-border flex items-center justify-center">
+                  <ProductImage
+                    artKey="handbag"
+                    alt="Saddle Leather Trapeze Tote"
+                    aspectClassName="w-full h-28"
+                  />
                 </div>
                 
                 <div className="sm:col-span-5 space-y-1.5">
-                  <div className="text-xs font-semibold text-[#16223B]">Studio Wireless Max</div>
-                  <div className="text-[11px] text-[#69758A]">Midnight Black · Space Audio</div>
-                  {/* Skeleton details */}
-                  <div className="flex gap-1.5 pt-1">
-                    <div className="h-1.5 w-16 bg-[#EDF2F8] rounded-full" />
-                    <div className="h-1.5 w-10 bg-[#EDF2F8] rounded-full" />
+                  <div className="text-sm font-semibold text-ink">Saddle Leather Trapeze Tote</div>
+                  <div className="text-xs text-muted">Full-Grain Calfskin · Brass Hardware</div>
+                  <div className="flex items-center gap-2 pt-1 text-[11px]">
+                    <span className="px-2 py-0.5 rounded bg-leather-tint text-ink border border-leather-border">
+                      Handbags
+                    </span>
+                    <span className="text-muted">Origin: Tuscany, Italy</span>
                   </div>
                 </div>
 
-                <div className="sm:col-span-4 text-left sm:text-right">
-                  <div className="text-sm font-bold text-[#16223B]">$249.00</div>
-                  <div className="text-[10px] text-emerald-600 font-medium">Free Express Shipping</div>
+                <div className="sm:col-span-3 text-left sm:text-right space-y-1">
+                  <div className="text-base font-bold text-ink">$185 / unit</div>
+                  <div className="text-[10px] text-muted">MOQ 25 units · Indicative</div>
                 </div>
               </div>
 
-              {/* 1-Click Payment Pills inside Checkout */}
-              <div className="mt-4 pt-3 border-t border-[#EDF2F8] flex flex-wrap items-center gap-2">
-                <div className="px-3.5 py-1.5 rounded-lg bg-[#0A0A0A] text-white text-[11px] font-medium flex items-center gap-1.5 shadow-2xs">
-                  <span className="text-xs"></span> Pay
+              {/* Action Bar */}
+              <div className="mt-4 pt-3 border-t border-border flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-xs text-muted">
+                  <span className="w-2 h-2 rounded-full bg-leather" />
+                  <span>Available for wholesale enquiries</span>
                 </div>
-                <div className="px-3.5 py-1.5 rounded-lg bg-white border border-[#D5DFEC] text-[#3C4043] text-[11px] font-medium flex items-center gap-1 shadow-2xs">
-                  <span className="font-bold text-[#4285F4]">G</span> Pay
-                </div>
-                <div className="px-3.5 py-1.5 rounded-lg bg-[#FFB3C7] text-[#0A0A0A] text-[11px] font-bold shadow-2xs">
-                  Klarna.
-                </div>
-                <span className="text-[11px] text-[#69758A] ml-auto font-medium">or pay with card</span>
+                <Button
+                  href="#contact"
+                  variant="primary"
+                  size="sm"
+                  className="text-xs"
+                >
+                  Send an enquiry
+                </Button>
               </div>
             </div>
 
             {/* Card Caption */}
             <div>
-              <h3 className="font-display font-semibold text-lg sm:text-xl text-[#16223B] flex items-center flex-wrap">
-                {checkoutCard.titleLead}
-                <InlineIconChip type={checkoutCard.chipIcon} />
-                {checkoutCard.titleTail}
+              <h3 className="font-display font-semibold text-lg sm:text-xl text-ink flex items-center flex-wrap">
+                {mainDiscovery.titleLead}
+                <InlineIconChip type={mainDiscovery.chipIcon} />
+                {mainDiscovery.titleTail}
               </h3>
-              <p className="mt-2 text-xs sm:text-sm text-[#69758A] leading-relaxed">
-                {checkoutCard.description}
+              <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed">
+                {mainDiscovery.description}
               </p>
             </div>
           </div>
 
-          {/* Narrow Conversion Rate Card (~4 cols) */}
-          <div className="lg:col-span-4 bg-white rounded-2xl p-5 sm:p-7 border border-[#E6ECF4] shadow-lasso-card transition-all duration-200 hover:shadow-lasso-hover flex flex-col justify-between">
-            {/* Conversion Chart Mockup */}
-            <div className="bg-[#FAFBFD] rounded-xl p-4 border border-[#EDF2F8] mb-6">
-              <div className="text-[11px] font-medium text-[#69758A]">{conversionCard.sublabel}</div>
-              <div className="flex items-baseline gap-2 mt-1">
-                <span className="font-display font-bold text-3xl sm:text-4xl text-[#16223B] tracking-tight">
-                  {conversionCard.metric}
-                </span>
-                <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                  <ArrowUpRight className="w-3 h-3 text-emerald-600" />
-                  {conversionCard.changeTag}
-                </span>
+          {/* Narrow Category Overview Card (~4 cols) */}
+          <div className="lg:col-span-4 bg-white rounded-2xl p-5 sm:p-7 border border-border shadow-card transition-all duration-200 hover:shadow-card-hover flex flex-col justify-between">
+            {/* Category List Mockup */}
+            <div className="bg-surface-soft rounded-xl p-4 border border-border mb-6">
+              <div className="flex items-center justify-between text-[11px] font-semibold text-muted uppercase tracking-wider pb-2 border-b border-border">
+                <span>Categories</span>
+                <span>Division</span>
               </div>
 
-              {/* Blue Area Chart SVG */}
-              <div className="mt-4 h-24 w-full">
-                <svg viewBox="0 0 200 80" className="w-full h-full" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#397AF4" stopOpacity="0.25" />
-                      <stop offset="100%" stopColor="#397AF4" stopOpacity="0.0" />
-                    </linearGradient>
-                  </defs>
-                  {/* Fill Area */}
-                  <path
-                    d="M 0 65 Q 40 55, 70 45 T 130 35 T 200 15 L 200 80 L 0 80 Z"
-                    fill="url(#chartGradient)"
-                  />
-                  {/* Main Line */}
-                  <path
-                    d="M 0 65 Q 40 55, 70 45 T 130 35 T 200 15"
-                    stroke="#397AF4"
-                    strokeWidth="2.5"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  {/* Key data point marker */}
-                  <circle cx="200" cy="15" r="3.5" fill="#397AF4" />
-                  <circle cx="200" cy="15" r="7" fill="#397AF4" fillOpacity="0.2" />
-                </svg>
-              </div>
-
-              <div className="flex justify-between items-center text-[10px] text-[#69758A] pt-1">
-                <span>Mon</span>
-                <span>Wed</span>
-                <span>Fri</span>
-                <span className="font-medium text-[#16223B]">Today</span>
+              <div className="divide-y divide-border text-xs">
+                {categoryOverview.categories.map((cat, idx) => (
+                  <div key={idx} className="py-2 flex items-center justify-between group">
+                    <span className="text-ink font-medium group-hover:text-leather transition-colors">
+                      {cat.name}
+                    </span>
+                    <span className="text-[10px] text-muted bg-white px-2 py-0.5 rounded border border-border">
+                      {cat.tag}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Card Caption */}
             <div>
-              <h3 className="font-display font-semibold text-lg sm:text-xl text-[#16223B] flex items-center flex-wrap">
-                {conversionCard.titleLead}
-                <InlineIconChip type={conversionCard.chipIcon} />
-                {conversionCard.titleTail}
+              <h3 className="font-display font-semibold text-lg sm:text-xl text-ink flex items-center flex-wrap">
+                {categoryOverview.titleLead}
+                <InlineIconChip type={categoryOverview.chipIcon} />
+                {categoryOverview.titleTail}
               </h3>
-              <p className="mt-2 text-xs sm:text-sm text-[#69758A] leading-relaxed">
-                {conversionCard.description}
+              <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed">
+                {categoryOverview.description}
               </p>
             </div>
           </div>
 
         </div>
 
-        {/* ROW 2: Three Equal Cards */}
+        {/* ROW 2: Three Equal Lower Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           
-          {/* Card 1: Grow with insights */}
-          <div className="bg-white rounded-2xl p-5 sm:p-6 border border-[#E6ECF4] shadow-lasso-card transition-all duration-200 hover:shadow-lasso-hover flex flex-col justify-between">
-            {/* Arc / Nodes Mockup */}
-            <div className="bg-[#FAFBFD] rounded-xl p-4 border border-[#EDF2F8] mb-5 h-36 flex flex-col justify-center items-center">
-              <div className="relative w-full max-w-[200px] h-20 flex items-center justify-center">
-                {/* Arc Line */}
-                <svg viewBox="0 0 160 70" className="w-full h-full" fill="none">
-                  <path
-                    d="M 20 60 A 60 60 0 0 1 140 60"
-                    stroke="#E2ECF8"
-                    strokeWidth="6"
-                    strokeLinecap="round"
+          {/* Card 1: Discover styles */}
+          <div className="bg-white rounded-2xl p-5 sm:p-6 border border-border shadow-card transition-all duration-200 hover:shadow-card-hover flex flex-col justify-between">
+            <div className="bg-surface-soft rounded-xl p-3 border border-border mb-5 h-36 flex items-center justify-around gap-2">
+              {bottomRow[0].items?.map((item, idx) => (
+                <div key={idx} className="flex-1 bg-white rounded-lg p-1.5 border border-border text-center shadow-2xs">
+                  <ProductImage
+                    artKey={item.artKey}
+                    alt={item.name}
+                    aspectClassName="w-full h-16"
                   />
-                  <path
-                    d="M 20 60 A 60 60 0 0 1 125 35"
-                    stroke="#397AF4"
-                    strokeWidth="6"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <div className="absolute top-4 text-center">
-                  <span className="text-xl font-bold font-display text-[#16223B]">95.4%</span>
-                  <span className="block text-[9px] text-[#69758A] uppercase font-semibold">Pass Rate</span>
+                  <div className="text-[10px] font-semibold text-ink truncate mt-1">{item.name}</div>
+                  <div className="text-[9px] text-muted">{item.tag}</div>
                 </div>
-              </div>
-              <div className="flex justify-between w-full px-4 text-xs">
-                <div className="text-center">
-                  <span className="text-[10px] text-[#69758A] block">Sessions</span>
-                  <span className="font-bold text-[#16223B]">937</span>
-                </div>
-                <div className="text-center">
-                  <span className="text-[10px] text-[#69758A] block">Approved</span>
-                  <span className="font-bold text-[#397AF4]">894</span>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div>
-              <h3 className="font-display font-semibold text-base sm:text-lg text-[#16223B] flex items-center flex-wrap">
+              <h3 className="font-display font-semibold text-base sm:text-lg text-ink flex items-center flex-wrap">
                 {bottomRow[0].titleLead}
                 <InlineIconChip type={bottomRow[0].chipIcon} />
                 {bottomRow[0].titleTail}
               </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-[#69758A] leading-relaxed">
+              <p className="mt-1.5 text-xs sm:text-sm text-muted leading-relaxed">
                 {bottomRow[0].description}
               </p>
             </div>
           </div>
 
-          {/* Card 2: Protect revenue from threats */}
-          <div className="bg-white rounded-2xl p-5 sm:p-6 border border-[#E6ECF4] shadow-lasso-card transition-all duration-200 hover:shadow-lasso-hover flex flex-col justify-between">
-            {/* Orders List with Flagged Chip */}
-            <div className="bg-[#FAFBFD] rounded-xl p-3 border border-[#EDF2F8] mb-5 h-36 flex flex-col justify-center space-y-2">
-              <div className="flex items-center justify-between text-[11px] p-1.5 bg-white rounded-lg border border-[#EBF1F8]">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span className="font-medium text-[#16223B]">Nike Blazer Mid</span>
+          {/* Card 2: Find suppliers */}
+          <div className="bg-white rounded-2xl p-5 sm:p-6 border border-border shadow-card transition-all duration-200 hover:shadow-card-hover flex flex-col justify-between">
+            <div className="bg-surface-soft rounded-xl p-3 border border-border mb-5 h-36 flex flex-col justify-center space-y-2">
+              {bottomRow[1].supplierSamples?.map((sup, idx) => (
+                <div key={idx} className="flex items-center justify-between text-[11px] p-2 bg-white rounded-lg border border-border">
+                  <div className="flex items-center gap-2 truncate">
+                    <Building2 className="w-3.5 h-3.5 text-leather shrink-0" />
+                    <div className="truncate">
+                      <span className="font-semibold text-ink block truncate">{sup.name}</span>
+                      <span className="text-[10px] text-muted block truncate">{sup.region}</span>
+                    </div>
+                  </div>
+                  <span className="text-[9px] font-semibold uppercase px-1.5 py-0.5 rounded bg-leather-tint text-ink border border-leather-border shrink-0">
+                    Sample
+                  </span>
                 </div>
-                <span className="font-bold text-[#16223B]">$110.00</span>
-              </div>
-
-              <div className="flex items-center justify-between text-[11px] p-1.5 bg-white rounded-lg border border-[#EBF1F8]">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span className="font-medium text-[#16223B]">Yeti Rambler</span>
-                </div>
-                <span className="font-bold text-[#16223B]">$35.00</span>
-              </div>
-
-              <div className="flex items-center justify-between text-[11px] p-1.5 bg-red-50/70 rounded-lg border border-red-200">
-                <div className="flex items-center gap-1.5">
-                  <ShieldAlert className="w-3.5 h-3.5 text-red-500" />
-                  <span className="font-medium text-red-800">MacBook Air M3</span>
-                </div>
-                <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-red-100 text-red-700">
-                  BLOCKED
-                </span>
-              </div>
+              ))}
             </div>
 
             <div>
-              <h3 className="font-display font-semibold text-base sm:text-lg text-[#16223B] flex items-center flex-wrap">
+              <h3 className="font-display font-semibold text-base sm:text-lg text-ink flex items-center flex-wrap">
                 {bottomRow[1].titleLead}
                 <InlineIconChip type={bottomRow[1].chipIcon} />
                 {bottomRow[1].titleTail}
               </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-[#69758A] leading-relaxed">
+              <p className="mt-1.5 text-xs sm:text-sm text-muted leading-relaxed">
                 {bottomRow[1].description}
               </p>
             </div>
           </div>
 
-          {/* Card 3: Earn more from every sale */}
-          <div className="bg-white rounded-2xl p-5 sm:p-6 border border-[#E6ECF4] shadow-lasso-card transition-all duration-200 hover:shadow-lasso-hover flex flex-col justify-between">
-            {/* Cart with Upsell Bump */}
-            <div className="bg-[#FAFBFD] rounded-xl p-3 border border-[#EDF2F8] mb-5 h-36 flex flex-col justify-center">
-              <div className="text-[10px] font-semibold text-[#69758A] uppercase mb-1">Cart Summary (1 item)</div>
-              <div className="flex items-center justify-between text-xs font-medium text-[#16223B] pb-2 border-b border-[#EDF2F8]">
-                <span>Knee Brace Pro</span>
-                <span>$49.00</span>
+          {/* Card 3: Organise collections */}
+          <div className="bg-white rounded-2xl p-5 sm:p-6 border border-border shadow-card transition-all duration-200 hover:shadow-card-hover flex flex-col justify-between">
+            <div className="bg-surface-soft rounded-xl p-3 border border-border mb-5 h-36 flex flex-col justify-center">
+              <div className="text-[10px] font-semibold text-muted uppercase mb-1">
+                Curated Line Sheet (Illustrative)
               </div>
-
-              {/* Order Bump Box */}
-              <div className="mt-2 p-2 bg-[#EBF3FF]/60 rounded-lg border border-[#D0E2FF] flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-4 h-4 rounded bg-[#397AF4] text-white flex items-center justify-center">
-                    <Check className="w-2.5 h-2.5" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-semibold text-[#16223B]">Matching Knee Sleeve</div>
-                    <div className="text-[9px] text-[#397AF4] font-medium">+ $19.00 (Save 30%)</div>
-                  </div>
+              <div className="p-3 bg-white rounded-lg border border-border space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-ink">
+                    {bottomRow[2].collectionSample?.title}
+                  </span>
+                  <span className="text-[10px] text-leather font-semibold">
+                    {bottomRow[2].collectionSample?.status}
+                  </span>
                 </div>
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-white text-[#397AF4] border border-[#D0E2FF]">
-                  Added
-                </span>
+                <div className="flex items-center gap-2 text-[10px] text-muted">
+                  <Layers className="w-3 h-3 text-muted" />
+                  <span>{bottomRow[2].collectionSample?.itemCount}</span>
+                  <span>·</span>
+                  <span>{bottomRow[2].collectionSample?.materials}</span>
+                </div>
               </div>
             </div>
 
             <div>
-              <h3 className="font-display font-semibold text-base sm:text-lg text-[#16223B] flex items-center flex-wrap">
+              <h3 className="font-display font-semibold text-base sm:text-lg text-ink flex items-center flex-wrap">
                 {bottomRow[2].titleLead}
                 <InlineIconChip type={bottomRow[2].chipIcon} />
                 {bottomRow[2].titleTail}
               </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-[#69758A] leading-relaxed">
+              <p className="mt-1.5 text-xs sm:text-sm text-muted leading-relaxed">
                 {bottomRow[2].description}
               </p>
             </div>
